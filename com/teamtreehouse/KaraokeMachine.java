@@ -104,7 +104,7 @@ public class KaraokeMachine {
     }
 
     private String promptArtist() throws IOException {
-        System.out.println("Available artists:");
+        System.out.println("Choose by index from available artists:");
         List<String> artists = new ArrayList<>(mSongBook.getArtists());
         int index = promptForIndex(artists);
         return artists.get(index);
@@ -116,7 +116,7 @@ public class KaraokeMachine {
         for (Song song : songs) {
             songTitles.add(song.getTitle());
         }
-        System.out.printf("Available songs for %s: %n", artist);
+        System.out.printf("Choose by index from available songs for %s: %n", artist);
         int index = promptForIndex(songTitles);
         return songs.get(index);
     }
