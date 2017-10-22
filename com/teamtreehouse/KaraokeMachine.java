@@ -81,10 +81,11 @@ public class KaraokeMachine {
                         System.out.printf("Unknown choice:  '%s'. Try again.  %n%n%n",
                                 choice);
                 }
-            } catch (IOException ioe) {
+            } catch (IOException|NumberFormatException ioe) {
                 System.out.println("Problem with input");
                 ioe.printStackTrace();
             }
+
         } while (!choice.equals("quit"));
     }
 
@@ -121,7 +122,7 @@ public class KaraokeMachine {
         return songs.get(index);
     }
 
-    private int promptForIndex(List<String> options) throws IOException {
+    private int promptForIndex(List<String> options) throws IOException, NumberFormatException {
         int counter = 1;
         for (String option : options) {
             System.out.printf("%d.)  %s %n", counter, option);
